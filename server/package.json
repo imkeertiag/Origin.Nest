@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-  "dev": "nodemon -r dotenv/config --experimental-json-modules server.js",
+  "dev": "npx nodemon -r dotenv/config --experimental-json-modules server.js",
   "start": "node server.js"
   },
   "keywords": [],
