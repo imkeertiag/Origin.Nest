@@ -1,0 +1,84 @@
+to import files in starting ctrl + space + select
+
+// concept of async and await
+// In real life, async is like ordering a coffee and doing something else while you wait, while await is like waiting for the coffee to be ready before doing 
+// anything else.
+
+// middlewares in  server are -> router , middleware for routing mechnism ,, Zod for validation tool ,, jwt for authentication tokenisation
+
+for express -> npm i express
+npm run start
+
+# for mongoose -> npm i mongoose
+
+for automatic server 
+npm i nodemon
+nodemon server.js
+to restart enter rs
+
+>server.js
+1 const express = require("express");
+2 const app = express();
+3
+4 app.get("/", (req, res) {
+5 res.se
+app.get: Sets up a route handler for HTTP GET requests. "/": Defines the route path, responding to the root URL.
+(req, res) => { ... }: An arrow function handling the request (req) and constructing the response (res).
+res.send("Hello, World!");: Sends the "Hello, World!"
+message as the response when the route is accessed.
+
+//*
+express. Router
+// *
+//? In Express.js, express. Router() is a mini Express application without all the server configurations but with the ability to define routes, middleware, and even have its own set of route handlers. It allows you to modularize your routes and middleware to keep your code organized and maintainable.
+//* https://expressjs.com/en/guide/routing.html
+//? Use the express. Router class to create modular, mountable route handlers. A Router instance is a complete middleware and routing system; for this reason, it is often referred to as a "mini-app".
+
+// Mount the Router: To use the router in your main Express app, you can "mount" it at a specific URL prefix
+app.use("/api/auth", router);
+
+//? In an Express.js application, a "controller" refers to a part of your code that is responsible for handling the application's logic. Controllers are typically used to process incoming requests, interact with models (data sources), and send responses back to clients. They help organize your application by separating concerns and following the MVC (Model-View-Controller) design pattern.
+
+// Registration logic- 
+Get Registration data: retrive user data (username , email , password).
+check email existence: check if email is already registered or not
+hash password : securely hash the password
+create user: create a new user with hashed password
+save to db : save user data to the database
+Respond: respond with "Registration successful" or handle errors
+
+
+// **What is JWT?**
+// JSON Web Tokens (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
+// JWTs are often used for authentication and authorization in web applications.
+// 1. **Authentication: Verifying the identity of a user or client.
+// 2. **Authorization:** Determining what actions a user or client is allowed to perform.
+// ----> example irctc login page after 3 mins tokens are expired this is tokenisation...
+
+// **Components of a JWT: **
+// Header: Contains metadata about the token, such as the type of token and the signing algorithm being used.
+// Payload: Contains claims or statements about an entity (typically, the user) and additional data.
+// Common claims include user ID, username, and expiration time.
+// Signature: To verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way, a signature is included.
+
+json web token
+Tokens, such as JWTs (JSON Web Tokens), are typically not stored in the database along with other user details. Instead, they are issued by the server during the authentication process and then stored on the client-side (e.g., in cookies or local storage) for later use.
+
+In most cases, converting _id to a string is a good practice because it ensures consistency and compatibility across different JWT libraries and systems. It also aligns with the expectation that claims in a JWT are represented as strings.
+
+// step to form login registration form
+1. route in auth-router.js
+2. auth.controller -> write user login logic 
+3. in postman make new collection for login
+
+1// await schema.parseAsync(req.body) is the line where you use Zod to validate the request body data against the defined schema.
+2
+3// https://github.com/colinhacks/zod#parseasync
+4
+5//.parse(data: unknown): T
+6
+7// Given any Zod schema, you can call its parse method to check data is valid. If it is, a value is returned with full type information! Otherwise, an error is thrown.
+8
+9//.parseAsync(data:unknown): Promise<T>
+11 // If you use asynchronous [refinements](https://github.com/colinhacks/zod#refine)
+or [transforms](https://github.com/colinhacks/zod#transform) (more on those later) , you will need to use `.parseAsync` .
